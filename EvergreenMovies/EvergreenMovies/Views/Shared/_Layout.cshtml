@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> EVERGREEN- @ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        /*To CREATE LINK IN THE FOOTER*/
+ .nav1
+ {
+  list-style-type: none;
+  text-align: center;
+  margin-bottom:15px;
+  margin-top:15px;
+  padding: 0;
+}
+
+.nav1 li 
+{
+  display: inline-block;
+ 
+}
+.nav1 li a
+{
+    color:black;
+    padding: 14px 16px;
+  text-decoration: none;
+  background-color: white;
+  border-radius:20px;
+}
+.nav1 li a:hover
+{
+  background-color: dimgray;
+  color: white;
+}
+
+/*TO CREATE DROPDOWN MENU*/
+
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("EVERGREEN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Movies", "Movies", "Home")</li>
+                    <li>@Html.ActionLink("Series", "About", "Home")</li>
+                    <li>@Html.ActionLink("Anime", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">Contact Us
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Write For Us", "WriteForUs", "Home")</li>
+                            <li>@Html.ActionLink("Request Download Link", "Requestforlink", "Home")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="clear:left; margin-top:0px; background-color:black;">
+            <h2 style="text-align:center; font-size:25px; color:lawngreen; padding-top:20px; font-family:'Bodoni MT'">EVERGREEN</h2>
+            <ul class="nav1">
+                <li>@Html.ActionLink("Write for Us", "WriteforUs", "Home")</li>
+                <li>@Html.ActionLink("Request for Links", "Requestforlink", "Home")</li>
+            </ul>
+            <p style="color: white; font-size: 15px; text-align: center; padding-bottom:20px" ,> Copyright &copy; @DateTime.Now.Year - Evergreen.com</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
